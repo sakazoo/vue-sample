@@ -33,3 +33,12 @@ var style = new Vue({
     progress: 10
   }
 });
+
+var binding = new Vue({
+  el: "#binding",
+  data: {
+    message: "",
+    description: "This is textarea.",
+    framework: "vue"
+  }
+});
