@@ -3,13 +3,77 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/style.css" />
     <title>サンプル画面</title>
   </head>
   <body>
     <div id="app">
-      <h1>{{ message }}</h1>
+      <h1 class="container">{{ message }}</h1>
     </div>
-
+    <hr />
+    <div id="template">
+      <div class="container">
+        <h1>【v-if】</h1>
+        <p class="notification" v-if="0 < messages.count">
+          You have {{ messages.count }} messages.
+        </p>
+        <p v-else>No messages.</p>
+        <p>
+          I am :
+          <i class="fa fa-mars icon" v-if="user.gender === 'male'">Man</i>
+          <i class="fa fa-venus icon" v-else-if="user.gender === 'female'"
+            >Woman</i
+          >
+          <i class="fa fa-transgender icon" v-else>Others</i>
+        </p>
+        <hr />
+        <h1>【v-show】</h1>
+        <ul class="tab">
+          <li class="tab-item"><button>tab 1</button></li>
+          <li class="tab-item"><button>tab 2</button></li>
+          <li class="tab-item"><button>tab 3</button></li>
+        </ul>
+        <section class="tab-content" v-show="currentTab === 1">
+          <h2>Tab 1</h2>
+          <p>
+            Lorem ipsum dolor sit amet, te sed dolor aliquam scripserit, ut
+            blandit recteque ius, eripuit invenire ne duo.
+          </p>
+        </section>
+        <section class="tab-content" v-show="currentTab === 2">
+          <h2>Tab 2</h2>
+          <p>
+            At cum scripta admodum, ius habeo postea deterruisset ne, admodum
+            oporteat eu vis.
+          </p>
+        </section>
+        <section class="tab-content" v-show="currentTab === 3">
+          <h2>Tab 3</h2>
+          <p>
+            Iuvaret efficiantur at est, eos alienum argumentum ei, nullam
+            imperdiet ad sed.
+          </p>
+        </section>
+        <hr />
+        <h1>【v-for】</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Creator</th>
+              <th>Github Stars</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="framework in frameworks">
+              <td>{{ framework.name }}</td>
+              <td>{{ framework.creator }}</td>
+              <td>{{ framework.stars }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
     <script src="https://unpkg.com/vue"></script>
     <script src="/app.js"></script>
   </body>

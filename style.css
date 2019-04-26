@@ -1,0 +1,56 @@
+.container {
+  padding: 0.5rem 2%;
+}
+
+.notification {
+  background: #0093e3;
+  border-radius: 4px;
+  color: white;
+  padding: 1rem;
+}
+
+.icon {
+  font-size: 1.6rem;
+}
+
+.fa-mars {
+  color: blue;
+}
+
+.fa-venus {
+  color: red;
+}
+
+.fa-transgender {
+  color: green;
+}
+
+.tab {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  margin-bottom: 1rem;
+  padding: 0;
+}
+
+.tab-item + .tab-item {
+  margin-left: 1rem;
+}
+
+.tab-content {
+  background: #f1fafa;
+  padding: 0.5rem;
+}
+
+.table {
+  border: 3px solid #eee;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.table th,
+.table td {
+  border: 1px solid #dedede;
+  padding: 0.5em;
+  text-align: center;
+}
