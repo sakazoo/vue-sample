@@ -84,3 +84,54 @@
   justify-content: center;
   background-color: blue;
 }
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+select,
+textarea {
+  border: 1px solid #dedede;
+  border-radius: 4px;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  width: 100%;
+}
+
+.form-content {
+  background: #f8f8f8;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+dt {
+  margin-bottom: 0.5rem;
+}
+
+dd {
+  margin: 0;
+}
+
+dd + dt {
+  margin-top: 1rem;
+}
+
+pre {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+.error-msg {
+  color: red;
+  font-size: 0.9rem;
+}
