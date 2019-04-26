@@ -1,3 +1,7 @@
+[v-cloak] {
+  display: none;
+}
+
 .container {
   padding: 0.5rem 2%;
 }
@@ -53,4 +57,30 @@
   border: 1px solid #dedede;
   padding: 0.5em;
   text-align: center;
+}
+
+.text {
+  padding: 1em;
+  border-radius: 4px;
+  background: #f2f2f2;
+  margin-bottom: 1rem;
+}
+
+.text-error {
+  color: red;
+  background: #feeeea;
+}
+
+.progress {
+  display: flex;
+  height: 10px;
+  overflow: hidden;
+  background-color: #e9ecef;
+}
+
+.progress-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: blue;
 }

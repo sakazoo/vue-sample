@@ -7,14 +7,16 @@
     <title>サンプル画面</title>
   </head>
   <body>
-    <div id="app">
+    基本編
+    <div id="app" v-cloak>
       <h1 class="container">{{ message }}</h1>
     </div>
     <hr />
+    テンプレート編
     <div id="template">
       <div class="container">
         <h1>【v-if】</h1>
-        <p class="notification" v-if="0 < messages.count">
+        <p class="notification" v-if="0 < messages.count" v-cloak>
           You have {{ messages.count }} messages.
         </p>
         <p v-else>No messages.</p>
@@ -72,6 +74,28 @@
             </tr>
           </tbody>
         </table>
+      </div>
+    </div>
+    <hr />
+    クラスとスタイル編
+    <div id="style">
+      <div class="container">
+        <h1 class="title">Welcome to Vue</h1>
+        <p
+          v-for="message in messages"
+          class="text"
+          :class="{ 'text-error': message.error }"
+        >
+          {{ message.text }}
+        </p>
+        <h1 class="h3 mb-4">Progress</h1>
+        <div class="progress">
+          <div
+            class="progress-bar"
+            role="progressbar"
+            :style="{width: progress + '%'}"
+          ></div>
+        </div>
       </div>
     </div>
     <script src="https://unpkg.com/vue"></script>

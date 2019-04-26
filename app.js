@@ -22,3 +22,14 @@ var template = new Vue({
     ]
   }
 });
+
+var style = new Vue({
+  el: "#style",
+  data: {
+    messages: [
+      { text: "This is normal message.", error: false },
+      { text: "This is ERROR message!", error: true }
+    ],
+    progress: 10
+  }
+});
