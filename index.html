@@ -221,6 +221,29 @@
         </p>
       </div>
     </div>
+    <hr />
+    ウォッチャ編
+    <div id="watch">
+      <div class="container">
+        <h1>Vue.js Form Validation</h1>
+        <div class="form-group">
+          <label for="email">
+            メールアドレス
+            <small>※必須、半角英数のみ</small>
+          </label>
+          <input type="text" id="email" v-model="email" />
+          <p class="error-msg" v-if="error.email">{{ error.email }}</p>
+        </div>
+        <div class="form-group">
+          <label for="username">
+            ユーザー名
+            <small>※必須、半角英数のみ</small>
+          </label>
+          <input type="text" id="username" v-model="username" />
+          <p class="error-msg" v-if="error.username">{{ error.username }}</p>
+        </div>
+      </div>
+    </div>
     <script src="https://unpkg.com/vue"></script>
     <script src="/app.js"></script>
   </body>
