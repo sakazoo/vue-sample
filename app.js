@@ -93,3 +93,68 @@ var event = new Vue({
     }
   }
 });
+
+var computed = new Vue({
+  el: "#computed",
+  data: {
+    birthday: "",
+    isComputedCalled: false,
+    left: 0,
+    right: 0
+  },
+  methods: {
+    // この関数が呼び出されたタイミングがわかるように
+    // メッセージを表示させる
+    setMessage: function() {
+      this.isComputedCalled = true;
+      const that = this;
+      setTimeout(function() {
+        that.isComputedCalled = false;
+      }, 1000);
+    },
+    getAge: function(year, month, day) {
+      //誕生年月日
+      var birthday = new Date(year, month - 1, day);
+
+      //今日
+      var today = new Date();
+
+      //今年の誕生日
+      var thisYearBirthday = new Date(
+        today.getFullYear(),
+        birthday.getMonth(),
+        birthday.getDate()
+      );
+
+      //今年-誕生年
+      var age = today.getFullYear() - birthday.getFullYear();
+
+      //今年の誕生日を迎えていなければage-1を返す
+      return today < thisYearBirthday ? age - 1 : age;
+    }
+  },
+  computed: {
+    age: function() {
+      this.setMessage();
+
+      // 誕生日の値が入っていなければマイナスの値を返却する
+      // マイナスの場合の表示はテンプレート側で制御する
+      if (!this.birthday) {
+        return -1;
+      }
+
+      // 日付の計算
+      const bd = this.birthday.split("-");
+      if (bd.length < 3) {
+        return -1;
+      }
+
+      return this.getAge(bd[0], bd[1], bd[2]);
+    },
+    total: function() {
+      this.setMessage();
+
+      return this.left + this.right;
+    }
+  }
+});

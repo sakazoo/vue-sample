@@ -200,6 +200,27 @@
         </output>
       </div>
     </div>
+    <hr />
+    算出プロパティ編
+    <div id="computed">
+      <div class="container">
+        <label for="birthday">お誕生日は？</label>
+        <input type="date" id="birthday" v-model="birthday" />
+
+        <p v-if="age >= 0">{{ age }} 歳ですね！</p>
+        <p v-else>お誕生日を正しく入力してください。</p>
+        <p>
+          <input type="number" v-model.number="left" />
+          +
+          <input type="number" v-model.number="right" />
+          =
+          {{ total }}
+        </p>
+        <p v-if="isComputedCalled" class="message">
+          Computedが呼び出されました。
+        </p>
+      </div>
+    </div>
     <script src="https://unpkg.com/vue"></script>
     <script src="/app.js"></script>
   </body>
