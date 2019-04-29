@@ -50,6 +50,7 @@
   border: 3px solid #eee;
   border-collapse: collapse;
   margin-top: 10px;
+  width: 50%;
 }
 
 .table th,
@@ -134,4 +135,9 @@ pre {
 .error-msg {
   color: red;
   font-size: 0.9rem;
+}
+
+.form-control {
+  display: block;
+  width: 85%;
 }
