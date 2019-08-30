@@ -137,6 +137,11 @@ pre {
   font-size: 0.9rem;
 }
 
+.errorMsg {
+  color: red;
+  font-size: 0.9rem;
+}
+
 .form-control {
   display: block;
   width: 85%;
