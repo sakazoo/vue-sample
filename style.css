@@ -146,3 +146,18 @@ pre {
   display: block;
   width: 85%;
 }
+.header h1{
+  width: 30%;
+  height: 30px;
+  background-color: #f1fafa;
+  border: 1px solid #d3d3d3;
+  padding: 30px 15px;
+}
+
+.content {
+  width: 30%;
+  height: 500px;
+  background-color: white;
+  border: 1px solid #d3d3d3;
+  padding: 30px 15px;
+}
