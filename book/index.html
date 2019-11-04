@@ -7,17 +7,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../style.css">
     <script src="https://unpkg.com/vue@2.5.17"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1"></script>
     <title>ショッピング画面</title>
 </head>
 
 <body>
+
+    <div id="index">
+        <router-link to="/top">トップページ</router-link>
+        <router-link to="/shops">ショップ一覧</router-link>
+        <router-link :to="{ name: 'myShopId', params: {shopId: 1234}}">Myショップ</router-link>
+        <router-view></router-view>
+    </div>
     <div id="title-component">
         <page-header class="header">
-            <h1 slot="header">Welecome to this site!!</h1>
+            <h1 slot="header">Welecome!!</h1>
         </page-header>
         <site-title-full v-bind:user-name="userName" v-bind:balance="balance"></site-title-full>
     </div>
-    <div id="app" class="content" style="height: 260px;">
+    <div id="app" class="content">
         <p>商品一覧</p>
         <coupon></coupon>
         <ul>
@@ -28,13 +36,17 @@
                 = {{ item.price * item.quantity | numberWithDelimeter | yen }}
             </li>
         </ul>
-        <p>
-            <p>{{ totalPrice | total | numberWithDelimeter | yen}}
-                (税込：{{ totalPriceWithTax | numberWithDelimeter | yen}})</p>
-            <p :class="errorMessageClass" v-show="checkBalance">残高が不足しています</p>
+        <p>{{ totalPrice | total | numberWithDelimeter | yen}}
+            (税込：{{ totalPriceWithTax | numberWithDelimeter | yen}})</p>
+        <p :class="errorMessageClass" v-show="checkBalance">残高が不足しています</p>
+        <img v-fallback-image src="https://dummyimage.com/200x200/000/ffffff.png&text=Time sale!!">
     </div>
     <div id="buttons">
         <buttons @buy-shohin="buyShohin" @clear-shohin="clearShohin"></buttons>
+        <button @click="showSale">セール情報の確認</button>
+        <transition>
+            <p v-show="isShown">Time Sale!! : パソコン300円</p>
+        </transition>
     </div>
 
     <script src="./app.js"></script>
