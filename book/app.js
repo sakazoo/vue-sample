@@ -1,3 +1,116 @@
+var shopList = {
+    template: `
+    <div>
+        <div>ショップ一覧</div>
+        <ul>
+        <li v-for="shop in shops" :key="shop.id">
+            {{ shop.id }} : {{ shop.name }}
+        </li>
+        </ul>
+    </div>
+    `,
+    data: function(){
+        return {
+            shops: function(){return []}
+        }
+    },
+    created: function(){
+        this.fetchData()
+    },
+    watch: {
+        '$route': 'fetchData'
+    },
+    methods: {
+        fetchData: function(){
+            getShops((function(err, shops){
+                if(err){
+
+                }else{
+                    this.shops = shops
+                }
+            }).bind(this))
+        }
+    }
+}
+
+var getShops = function(callback){
+    setTimeout(function(){
+        callback(null, [
+            {
+                id: 1,
+                name: 'rakuten',
+                description: '国内No.1'
+            },
+            {
+                id: 2,
+                name: 'yahoo',
+                description: '国内No.2'
+            }
+        ])
+    }, 30)
+}
+
+var shopDetail = {
+    template: `
+    <diV>
+      <div v-if="loading">now loading...</div>
+      <div>MyショップID：{{ shop.id }}</div>
+    </div>
+    `,
+    data: function(){
+        return {
+            loading: false,
+            shop: null
+        }
+    },
+    created: function () {
+        this.fetchData()
+    },
+    watch: {
+        '$route': 'fetchData'
+    },
+    methods: {
+        fetchData: function () {
+            this.loading = false
+            this.shop = getShop()
+        }
+    }
+}
+
+var getShop = function () {
+    var shop = {
+        id: 1,
+        name: 'rakuten',
+        description: '国内No.1'
+    }
+    return shop
+}
+
+// Router setting
+var router = new VueRouter({
+    routes: [
+        {
+            path: '/top',
+            component: {
+                template: '<div>トップページ</div>'
+            }
+        },
+        {
+            path: '/shops',
+            component: shopList
+        },
+        {
+            path: '/shop/:shopId',
+            name: 'myShopId',
+            component: shopDetail
+        }
+    ]
+})
+
+var index = new Vue({
+    router: router
+}).$mount('#index')
+
 var items = [
     {
         name: '鉛筆',
@@ -57,6 +170,14 @@ var vm3 = new Vue({
     data: {
         userName: 'user1',
         balance: BALANCE
+    }
+})
+
+Vue.directive('fallback-image', {
+    bind: function (el) {
+        el.addEventListener('error', function () {
+            el.src = 'https://dummyimage.com/200x200/000/ffffff.png&text=no+image'
+        })
     }
 })
 
@@ -139,6 +260,11 @@ var buyClearButton = Vue.extend({
 
 var vm2 = new Vue({
     el: '#buttons',
+    data: function(){
+        return {
+            isShown: false
+        }
+    },
     components: {
         'buttons': buyClearButton
     },
@@ -148,6 +274,10 @@ var vm2 = new Vue({
         },
         clearShohin: function () {
             console.log('clear button clicked')
+        },
+        showSale: function(){
+            this.isShown = !this.isShown
+            console.log('sale button clicked')
         }
     }
 });

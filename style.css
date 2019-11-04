@@ -147,7 +147,7 @@ pre {
   width: 85%;
 }
 .header h1{
-  width: 30%;
+  width: 50%;
   height: 30px;
   background-color: #f1fafa;
   border: 1px solid #d3d3d3;
@@ -155,9 +155,30 @@ pre {
 }
 
 .content {
-  width: 30%;
+  width: 50%;
   height: 500px;
   background-color: white;
   border: 1px solid #d3d3d3;
   padding: 30px 15px;
+}
+
+.v-enter-active,
+.v-leave-active{
+  transition: opacity 500ms ease-out;
+}
+
+.v-enter{
+  opacity: 0;
+}
+
+.v-enter-to {
+  opacity: 1;
+}
+
+.v-leave {
+  opacity: 1;
+}
+
+.v-leave-to{
+  opacity: 0;
 }
